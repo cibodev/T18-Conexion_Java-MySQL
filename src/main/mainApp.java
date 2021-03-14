@@ -25,23 +25,23 @@ public class mainApp {
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		db.connectDB("root", "");
-		db.createDB("Tienda_Informatica");
-		db.createTable("Tienda_Informatica", "CREATE TABLE Fabricantes (Codigo INT NOT NULL, Nombre VARCHAR(50), PRIMARY KEY (Codigo));");
-		db.createTable("Tienda_Informatica", "CREATE TABLE Articulos (Codigo INT NOT NULL AUTO_INCREMENT, Nombre VARCHAR(100), Precio INT, Fabricante INT, PRIMARY KEY(Codigo), FOREIGN KEY (Fabricante) REFERENCES Fabricantes(Codigo));");
-		db.insertData("Tienda_Informatica", "INSERT INTO Fabricantes (Codigo, Nombre) VALUES (\"1\", \"Fabricante 1\");");
-		db.insertData("Tienda_Informatica", "INSERT INTO Fabricantes (Codigo, Nombre) VALUES (\"2\", \"Fabricante 2\");");
-		db.insertData("Tienda_Informatica", "INSERT INTO Fabricantes (Codigo, Nombre) VALUES (\"3\", \"Fabricante 3\");");
-		db.insertData("Tienda_Informatica", "INSERT INTO Fabricantes (Codigo, Nombre) VALUES (\"4\", \"Fabricante 4\");");
-		db.insertData("Tienda_Informatica", "INSERT INTO Fabricantes (Codigo, Nombre) VALUES (\"5\", \"Fabricante 5\");");
-		db.insertData("Tienda_Informatica", "INSERT INTO Articulos (Nombre, Precio, Fabricante) VALUES (\"Nombre 1\", \"10\", \"1\");");
-		db.insertData("Tienda_Informatica", "INSERT INTO Articulos (Nombre, Precio, Fabricante) VALUES (\"Nombre 2\", \"10\", \"2\");");
-		db.insertData("Tienda_Informatica", "INSERT INTO Articulos (Nombre, Precio, Fabricante) VALUES (\"Nombre 3\", \"10\", \"3\");");
-		db.insertData("Tienda_Informatica", "INSERT INTO Articulos (Nombre, Precio, Fabricante) VALUES (\"Nombre 4\", \"10\", \"4\");");
-		db.insertData("Tienda_Informatica", "INSERT INTO Articulos (Nombre, Precio, Fabricante) VALUES (\"Nombre 5\", \"10\", \"5\");");
-		System.out.println("Fabricantes");
-		db.getValuesFabricantes("Tienda_Informatica");
-		System.out.println("Articulos");
-		db.getValuesArticulos("Tienda_Informatica");
+		db.createDB("EmpleadosDB");
+		db.createTable("EmpleadosDB", "CREATE TABLE Departamentos (Codigo INT NOT NULL, Nombre VARCHAR(50), Presupuesto INT, PRIMARY KEY (Codigo));");
+		db.createTable("EmpleadosDB", "CREATE TABLE Empleados (DNI VARCHAR(8) NOT NULL, Nombre VARCHAR(100), Apellido varchar(255), Departamento INT, PRIMARY KEY(DNI), FOREIGN KEY (Departamento) REFERENCES Departamentos(Codigo));");
+		db.insertData("EmpleadosDB", "INSERT INTO Departamentos (Codigo, Nombre) VALUES (\"1\", \"1\");");
+		db.insertData("EmpleadosDB", "INSERT INTO Departamentos (Codigo, Nombre) VALUES (\"2\", \"2\");");
+		db.insertData("EmpleadosDB", "INSERT INTO Departamentos (Codigo, Nombre) VALUES (\"3\", \"3\");");
+		db.insertData("EmpleadosDB", "INSERT INTO Departamentos (Codigo, Nombre) VALUES (\"4\", \"4\");");
+		db.insertData("EmpleadosDB", "INSERT INTO Departamentos (Codigo, Nombre) VALUES (\"5\", \"5\");");
+		db.insertData("EmpleadosDB", "INSERT INTO Empleados (DNI, Nombre, Apellido, Departamento) VALUES (\"1111111A\", \"1\", \"1\", \"1\");");
+		db.insertData("EmpleadosDB", "INSERT INTO Empleados (DNI, Nombre, Apellido, Departamento) VALUES (\"2222222B\",\"2\", \"2\", \"2\");");
+		db.insertData("EmpleadosDB", "INSERT INTO Empleados (DNI, Nombre, Apellido, Departamento) VALUES (\"3333333C\", \"3\", \"3\", \"3\");");
+		db.insertData("EmpleadosDB", "INSERT INTO Empleados (DNI, Nombre, Apellido, Departamento) VALUES (\"4444444D\", \"4\", \"4\", \"4\");");
+		db.insertData("EmpleadosDB", "INSERT INTO Empleados (DNI, Nombre, Apellido, Departamento) VALUES (\"5555555E\", \"5\", \"5\", \"5\");");
+		System.out.println("Departamentos");
+		db.getValuesDepartamentos("EmpleadosDB");
+		System.out.println("Empleados");
+		db.getValuesEmpleados("EmpleadosDB");
 		db.closeConnection();
 	}
 

@@ -72,19 +72,20 @@ public class db {
 		}		
 	}
 	
-	public static void getValuesFabricantes(String db) {
+	public static void getValuesDepartamentos(String db) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM Fabricantes;";
+			String Query = "SELECT * FROM Departamentos;";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
 				System.out.println("\tCodigo: " +  resultSet.getInt("codigo") + "\n"
-						+ "\tNombre: " +  resultSet.getString("nombre") + "\n");
+								 + "\tNombre: " +  resultSet.getString("nombre") + "\n"
+								 + "\tPresupuesto : " +  resultSet.getInt("presupuesto") + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -92,21 +93,21 @@ public class db {
 		}
 	}
 	
-	public static void getValuesArticulos(String db) {
+	public static void getValuesEmpleados(String db) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM Articulos;";
+			String Query = "SELECT * FROM Empleados;";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
-				System.out.println("\tCodigo: " +  resultSet.getInt("Codigo") + "\n"
-						+ "\tNombre: " +  resultSet.getString("Nombre") + "\n"
-						+ "\tPrecio: " +  resultSet.getInt("Precio") + "\n"
-						+ "\tFabricante: " +  resultSet.getInt("Fabricante") + "\n");
+				System.out.println("\tDNI: " +  resultSet.getString("dni") + "\n"
+						+ "\tNombre: " +  resultSet.getString("nombre") + "\n"
+						+ "\tApellido: " +  resultSet.getString("apellido") + "\n"
+						+ "\tDepartamento: " +  resultSet.getInt("departamento") + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
