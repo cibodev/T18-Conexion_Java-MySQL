@@ -72,18 +72,19 @@ public class db {
 		}		
 	}
 	
-	public static void getValues(String db, String table, String column) {
+	public static void getValuesFabricantes(String db) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM "+table+";";
+			String Query = "SELECT * FROM Fabricantes;";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
-				System.out.println("\t"+column+ ": "+  resultSet.getInt(column) + "\n");
+				System.out.println("\tCodigo: " +  resultSet.getInt("codigo") + "\n"
+						+ "\tNombre: " +  resultSet.getString("nombre") + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -91,91 +92,27 @@ public class db {
 		}
 	}
 	
-	public static void getValues(String db, String table, String column, String column1) {
+	public static void getValuesArticulos(String db) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM "+table+";";
+			String Query = "SELECT * FROM Articulos;";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
-				System.out.println("\t"+column+ ": "+  resultSet.getInt(column) + "\n"
-								 + "\t"+column1+ ": "+  resultSet.getInt(column1) + "\n");
+				System.out.println("\tCodigo: " +  resultSet.getInt("Codigo") + "\n"
+						+ "\tNombre: " +  resultSet.getString("Nombre") + "\n"
+						+ "\tPrecio: " +  resultSet.getInt("Precio") + "\n"
+						+ "\tFabricante: " +  resultSet.getInt("Fabricante") + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 			System.out.println("Error en la adquisicion de datos");
 		}
 	}
-	
-	public static void getValues(String db, String table, String column, String column1, String column2) {
-		try {
-			String Querydb = "USE "+db+";";
-			Statement stdb= conexion.createStatement();
-			stdb.executeUpdate(Querydb);
-						
-			String Query = "SELECT * FROM "+table+";";
-			Statement st = conexion.createStatement();
-			ResultSet resultSet = st.executeQuery(Query);
-			
-			while (resultSet.next()) {
-				System.out.println("\t"+column+ ": "+  resultSet.getInt(column) + "\n"
-								 + "\t"+column1+ ": "+  resultSet.getInt(column1) + "\n"
-								 + "\t"+column2+ ": "+  resultSet.getInt(column2) + "\n");
-			}
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-			System.out.println("Error en la adquisicion de datos");
-		}
-	}
-	
-	public static void getValues(String db, String table, String column, String column1, String column2, String column3) {
-		try {
-			String Querydb = "USE "+db+";";
-			Statement stdb= conexion.createStatement();
-			stdb.executeUpdate(Querydb);
-						
-			String Query = "SELECT * FROM "+table+";";
-			Statement st = conexion.createStatement();
-			ResultSet resultSet = st.executeQuery(Query);
-			
-			while (resultSet.next()) {
-				System.out.println("\t"+column+ ": "+  resultSet.getInt(column) + "\n"
-								 + "\t"+column1+ ": "+  resultSet.getInt(column1) + "\n"
-								 + "\t"+column2+ ": "+  resultSet.getInt(column2) + "\n"
-								 + "\t"+column3+ ": "+  resultSet.getInt(column3) + "\n");
-			}
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-			System.out.println("Error en la adquisicion de datos");
-		}
-	}
-	public static void getValues(String db, String table, String column, String column1, String column2, String column3, String column4) {
-		try {
-			String Querydb = "USE "+db+";";
-			Statement stdb= conexion.createStatement();
-			stdb.executeUpdate(Querydb);
-						
-			String Query = "SELECT * FROM "+table+";";
-			Statement st = conexion.createStatement();
-			ResultSet resultSet = st.executeQuery(Query);
-			
-			while (resultSet.next()) {
-				System.out.println("\t"+column+ ": "+  resultSet.getInt(column) + "\n"
-								 + "\t"+column1+ ": "+  resultSet.getInt(column1) + "\n"
-								 + "\t"+column2+ ": "+  resultSet.getInt(column2) + "\n"
-								 + "\t"+column3+ ": "+  resultSet.getInt(column3) + "\n"
-								 + "\t"+column4+ ": "+  resultSet.getInt(column4) + "\n");
-			}
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-			System.out.println("Error en la adquisicion de datos");
-		}
-	}
-	
 	
 	public static void deleteRecord(String db, String table_name, String ID) {
 		try {

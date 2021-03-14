@@ -39,9 +39,9 @@ public class mainApp {
 		db.insertData("Tienda_Informatica", "INSERT INTO Articulos (Nombre, Precio, Fabricante) VALUES (\"Nombre 4\", \"10\", \"4\");");
 		db.insertData("Tienda_Informatica", "INSERT INTO Articulos (Nombre, Precio, Fabricante) VALUES (\"Nombre 5\", \"10\", \"5\");");
 		System.out.println("Fabricantes");
-		db.getValues("Tienda_Informatica", "Fabricantes", "Codigo", "Nombre");
+		db.getValuesFabricantes("Tienda_Informatica");
 		System.out.println("Articulos");
-		db.getValues("Tienda_Informatica", "Articulos", "Nombre", "Precio", "Fabricante");
+		db.getValuesArticulos("Tienda_Informatica");
 		db.closeConnection();
 	}
 
