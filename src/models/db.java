@@ -72,20 +72,20 @@ public class db {
 		}		
 	}
 	
-	public static void getValuesAlmacenes(String db) {
+	public static void getValuesPeliculas(String db) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM Almacenes;";
+			String Query = "SELECT * FROM Peliculas;";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
 				System.out.println("\tCodigo: " +  resultSet.getInt("codigo") + "\n"
-								 + "\tLugar: " +  resultSet.getString("lugar") + "\n"
-								 + "\tCapacidad : " +  resultSet.getInt("capacidad") + "\n");
+								 + "\tNombre: " +  resultSet.getString("Nombre") + "\n"
+								 + "\tEdad : " +  resultSet.getInt("rdad") + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -93,21 +93,21 @@ public class db {
 		}
 	}
 	
-	public static void getValuesCajas(String db) {
+	public static void getValuesSalas(String db) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM Cajas;";
+			String Query = "SELECT * FROM Salas;";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
-				System.out.println("\tNumRef: " +  resultSet.getString("NumRef") + "\n"
-						+ "\tContenido: " +  resultSet.getString("Contenido") + "\n"
-						+ "\tValor: " +  resultSet.getInt("Valor") + "\n"
-						+ "\tAlmacen: " +  resultSet.getInt("Almacen") + "\n");
+				System.out.println("\tCodigo: " +  resultSet.getInt("Codigo") + "\n"
+						+ "\tNombre: " +  resultSet.getString("nombre") + "\n"
+			//			+ "\tValor: " +  resultSet.getInt("Valor") + "\n"
+						+ "\tPelicula: " +  resultSet.getInt("pelicula") + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
