@@ -72,20 +72,20 @@ public class db {
 		}		
 	}
 	
-	public static void getValuesDepartamentos(String db) {
+	public static void getValuesAlmacenes(String db) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM Departamentos;";
+			String Query = "SELECT * FROM Almacenes;";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
 				System.out.println("\tCodigo: " +  resultSet.getInt("codigo") + "\n"
-								 + "\tNombre: " +  resultSet.getString("nombre") + "\n"
-								 + "\tPresupuesto : " +  resultSet.getInt("presupuesto") + "\n");
+								 + "\tLugar: " +  resultSet.getString("lugar") + "\n"
+								 + "\tCapacidad : " +  resultSet.getInt("capacidad") + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -93,21 +93,21 @@ public class db {
 		}
 	}
 	
-	public static void getValuesEmpleados(String db) {
+	public static void getValuesCajas(String db) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM Empleados;";
+			String Query = "SELECT * FROM Cajas;";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
-				System.out.println("\tDNI: " +  resultSet.getString("dni") + "\n"
-						+ "\tNombre: " +  resultSet.getString("nombre") + "\n"
-						+ "\tApellido: " +  resultSet.getString("apellido") + "\n"
-						+ "\tDepartamento: " +  resultSet.getInt("departamento") + "\n");
+				System.out.println("\tNumRef: " +  resultSet.getString("NumRef") + "\n"
+						+ "\tContenido: " +  resultSet.getString("Contenido") + "\n"
+						+ "\tValor: " +  resultSet.getInt("Valor") + "\n"
+						+ "\tAlmacen: " +  resultSet.getInt("Almacen") + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
