@@ -25,23 +25,23 @@ public class mainApp {
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		db.connectDB("root", "");
-		db.createDB("PeliculasDB");
-		db.createTable("PeliculasDB", "CREATE TABLE Peliculas (Codigo INT NOT NULL, Nombre VARCHAR(100), Edad INT, PRIMARY KEY (Codigo));");
-		db.createTable("PeliculasDB", "CREATE TABLE Salas (Codigo INT NOT NULL, Nombre VARCHAR(100), Pelicula INT, PRIMARY KEY(Codigo), FOREIGN KEY (Pelicula) REFERENCES Peliculas(Codigo));");
-		db.insertData("PeliculasDB", "INSERT INTO Peliculas (Codigo, Nombre) VALUES (\"1\", \"1\");");
-		db.insertData("PeliculasDB", "INSERT INTO Peliculas (Codigo, Nombre) VALUES (\"2\", \"2\");");
-		db.insertData("PeliculasDB", "INSERT INTO Peliculas (Codigo, Nombre) VALUES (\"3\", \"3\");");
-		db.insertData("PeliculasDB", "INSERT INTO Peliculas (Codigo, Nombre) VALUES (\"4\", \"4\");");
-		db.insertData("PeliculasDB", "INSERT INTO Peliculas (Codigo, Nombre) VALUES (\"5\", \"5\");");
-		db.insertData("PeliculasDB", "INSERT INTO Salas (Codigo, Nombre, Pelicula) VALUES (\"11111\", \"1\", \"1\");");
-		db.insertData("PeliculasDB", "INSERT INTO Salas (Codigo, Nombre, Pelicula) VALUES (\"22222\", \"2\", \"2\");");
-		db.insertData("PeliculasDB", "INSERT INTO Salas (Codigo, Nombre, Pelicula) VALUES (\"33333\", \"3\", \"3\");");
-		db.insertData("PeliculasDB", "INSERT INTO Salas (Codigo, Nombre, Pelicula) VALUES (\"44444\", \"4\", \"4\");");
-		db.insertData("PeliculasDB", "INSERT INTO Salas (Codigo, Nombre, Pelicula) VALUES (\"55555\", \"5\", \"5\");");
-		System.out.println("Almacenes");
-		db.getValuesPeliculas("PeliculasDB");
-		System.out.println("Cajas");
-		db.getValuesSalas("PeliculasDB");
+		db.createDB("DirectoresDB");
+		db.createTable("DirectoresDB", "CREATE TABLE Despachos (Numero INT NOT NULL, Capacidad INT, PRIMARY KEY (Numero));");
+		db.createTable("DirectoresDB", "CREATE TABLE Directores (DNI varchar(8) NOT NULL, NomApels VARCHAR(255), Despacho INT, DNIJefe varchar(8),  PRIMARY KEY(DNI), FOREIGN KEY (Despacho) REFERENCES Despachos(Numero), FOREIGN KEY (DNIJefe) REFERENCES Directores(dni));");
+		db.insertData("DirectoresDB", "INSERT INTO Despachos (Numero, Capacidad) VALUES (\"1\", \"1\");");
+		db.insertData("DirectoresDB", "INSERT INTO Despachos (Numero, Capacidad) VALUES (\"2\", \"2\");");
+		db.insertData("DirectoresDB", "INSERT INTO Despachos (Numero, Capacidad) VALUES (\"3\", \"3\");");
+		db.insertData("DirectoresDB", "INSERT INTO Despachos (Numero, Capacidad) VALUES (\"4\", \"4\");");
+		db.insertData("DirectoresDB", "INSERT INTO Despachos (Numero, Capacidad) VALUES (\"5\", \"5\");");
+		db.insertData("DirectoresDB", "INSERT INTO Directores (DNI, NomApels, Despacho) VALUES (\"1111111A\", \"1\", \"1\");");
+		db.insertData("DirectoresDB", "INSERT INTO Directores (DNI, NomApels, Despacho, DNIJefe) VALUES (\"2222222B\", \"2\", \"2\", \"1111111A\");");
+		db.insertData("DirectoresDB", "INSERT INTO Directores (DNI, NomApels, Despacho, DNIJefe) VALUES (\"3333333C\", \"3\", \"3\", \"1111111A\");");
+		db.insertData("DirectoresDB", "INSERT INTO Directores (DNI, NomApels, Despacho, DNIJefe) VALUES (\"4444444D\", \"4\", \"4\", \"1111111A\");");
+		db.insertData("DirectoresDB", "INSERT INTO Directores (DNI, NomApels, Despacho, DNIJefe) VALUES (\"5555555E\", \"5\", \"5\", \"1111111A\");");
+		System.out.println("Despachos");
+		db.getValues("DirectoresDB", "Despachos", "Numero", "Capacidad");
+		System.out.println("Directores");
+		db.getValues("DirectoresDB", "Directores", "DNI", "NomApels", "Despacho", "DNIJefe");
 		db.closeConnection();
 	}
 

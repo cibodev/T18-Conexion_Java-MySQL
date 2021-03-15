@@ -72,20 +72,18 @@ public class db {
 		}		
 	}
 	
-	public static void getValuesPeliculas(String db) {
+	public static void getValues(String db, String table, String row) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM Peliculas;";
+			String Query = "SELECT * FROM "+table+";";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
-				System.out.println("\tCodigo: " +  resultSet.getInt("codigo") + "\n"
-								 + "\tNombre: " +  resultSet.getString("Nombre") + "\n"
-								 + "\tEdad : " +  resultSet.getInt("rdad") + "\n");
+				System.out.println("\t"+row+": " +  resultSet.getString(row) + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -93,21 +91,62 @@ public class db {
 		}
 	}
 	
-	public static void getValuesSalas(String db) {
+	public static void getValues(String db, String table, String row, String row1) {
 		try {
 			String Querydb = "USE "+db+";";
 			Statement stdb= conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 						
-			String Query = "SELECT * FROM Salas;";
+			String Query = "SELECT * FROM "+table+";";
 			Statement st = conexion.createStatement();
 			ResultSet resultSet = st.executeQuery(Query);
 			
 			while (resultSet.next()) {
-				System.out.println("\tCodigo: " +  resultSet.getInt("Codigo") + "\n"
-						+ "\tNombre: " +  resultSet.getString("nombre") + "\n"
-			//			+ "\tValor: " +  resultSet.getInt("Valor") + "\n"
-						+ "\tPelicula: " +  resultSet.getInt("pelicula") + "\n");
+				System.out.println("\t"+row+": " +  resultSet.getString(row) + "\n"
+								  +"\t"+row1+": " +  resultSet.getString(row1) + "\n");
+			}
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			System.out.println("Error en la adquisicion de datos");
+		}
+	}
+	
+	public static void getValues(String db, String table, String row, String row1, String row2) {
+		try {
+			String Querydb = "USE "+db+";";
+			Statement stdb= conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+						
+			String Query = "SELECT * FROM "+table+";";
+			Statement st = conexion.createStatement();
+			ResultSet resultSet = st.executeQuery(Query);
+			
+			while (resultSet.next()) {
+				System.out.println("\t"+row+": " +  resultSet.getString(row) + "\n"
+								  +"\t"+row1+": " +  resultSet.getString(row1) + "\n"
+								  +"\t"+row2+": " +  resultSet.getString(row2) + "\n");
+			}
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			System.out.println("Error en la adquisicion de datos");
+		}
+	}
+	
+	public static void getValues(String db, String table, String row, String row1, String row2, String row3) {
+		try {
+			String Querydb = "USE "+db+";";
+			Statement stdb= conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+						
+			String Query = "SELECT * FROM "+table+";";
+			Statement st = conexion.createStatement();
+			ResultSet resultSet = st.executeQuery(Query);
+			
+			while (resultSet.next()) {
+				System.out.println("\t"+row+": " +  resultSet.getString(row) + "\n"
+								  +"\t"+row1+": " +  resultSet.getString(row1) + "\n"
+								  +"\t"+row2+": " +  resultSet.getString(row2) + "\n"
+								  +"\t"+row3+": " +  resultSet.getString(row3) + "\n");
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
